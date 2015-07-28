@@ -121,7 +121,27 @@ Then create share password
 sudo smbpasswd -a root 
 ```
 
-I then mapped the share on my local machine
+I then mapped the share on my local machine and opened in designer.
+
+#configure gpio
+change openhab.cfg in the gpio section.
+(use ctrl+f to find "gpio")
+
+uncomment the lines to look like
+```
+################################### GPIO Binding ######################################
+
+# Optional directory path where "sysfs" pseudo file system is mounted, when isn't
+# specified it will be determined automatically if "procfs" is mounted
+gpio:sysfs=/sys
+
+# Optional time interval in miliseconds when pin interrupts are ignored to
+# prevent bounce effect, mainly on buttons. Global option for all pins, can be
+# overwritten per pin in item configuration. Default value if omitted: 0
+gpio:debounce=10
+```
+
+
 
 
 
