@@ -6,6 +6,8 @@ This project is to control some relays from openhab on a rpi.
 
 Using default raspbian install as of 28/07/15 (installed from noobs1.4).
 
+#Workflow - to be edited
+
 1. install noobs on sd card.
 2. boot Rpi with sd card and install raspbian.
 3. get wireless card working with Rpi
@@ -81,7 +83,64 @@ congratulations you should now see the OpenHAB OSGI server running.
 
 using a web browser point it at http://[yourpiIPAddress}:8080/openhab.app?sitemap=demo
 
-any you should see the demo :)
+and you should see the demo :)
+
+
+#OpenHAB Designer
+
+Installation
+------------
+I wished to use my Rpi as a headless unit however I need to be able to edit config files in openhab designer on my local machine.
+So after installing openhab designer on my local machine I needed to make the remote files accessable.
+
+Share the OpenHAB installation.
+-------------------------------
+```
+sudo passwd root
+sudo apt-get install samba samba-common-bin 
+sudo nano /etc/samba/smb.conf 
+```
+
+make the file look like
+```
+[openhab]  
+   comment=OpenHAB  
+   path=/opt/openhab  
+   browseable=Yes  
+   writeable=Yes  
+   only guest=no  
+   create mask=0777  
+   directory mask=0777  
+   public=no 
+   
+```
+
+Then create share password
+
+```
+sudo smbpasswd -a root 
+```
+
+I then mapped the share on my local machine
+
+
+
+
+
+#References
+
+Install of OpenHAB
+------------------
+http://www.element14.com/community/community/design-challenges/forget-me-not/blog/2014/08/04/enoceanpi-and-sensors#jive_content_id_Setting_Up_OpenHAB
+http://www.element14.com/community/community/design-challenges/forget-me-not/blog/2014/10/02/remember-me-always--part-018xx
+
+
+
+
+
+
+
+
 
 
 
