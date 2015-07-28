@@ -22,4 +22,21 @@ or
 5. install openhab runtime.
 6. test openhab runtime.
 7. configure gpio in openhab.
-8. test gpio from openhab interface.
+8. test gpio from openhab interface.s
+
+
+
+downloading 
+-----------
+
+wget https://bintray.com/artifact/download/openhab/bin/distribution-1.7.0-runtime.zip
+wget https://bintray.com/artifact/download/openhab/bin/distribution-1.7.0-addons.zip
+wget https://bintray.com/artifact/download/openhab/bin/distribution-1.7.0-demo-configuration.zip
+
+
+
+Core
+----
+sudo mkdir /opt/openhab
+cd /opt/openhab/
+/opt/openhab $ sudo unzip /home/pi/distribution-1.7.0-runtime.zip
