@@ -124,7 +124,9 @@ sudo smbpasswd -a root
 I then mapped the share on my local machine and opened in designer.
 
 #configure gpio
+
 change openhab.cfg in the gpio section.
+---------------------------------------
 (use ctrl+f to find "gpio")
 
 uncomment the lines to look like
@@ -141,10 +143,64 @@ gpio:sysfs=/sys
 gpio:debounce=10
 ```
 
+install package for native JNA library
+--------------------------------------
+```
+sudo apt-get install libjna-java
+```
+
+you need to add a parameter in command line which starts openHAB and specify 
+the path to JNA library, e.g. edit the last line in "start.sh" and 
+append
+```-Djna.boot.library.path=/usr/lib/jni \``` 
+right after java \.
+
+
+```
+echo Launching the openHAB runtime...
+java \
+    -Djna.boot.library.path=/usr/lib/jni \
+	-Dosgi.clean=true \
+	-Declipse.ignoreApp=true \
+	-Dosgi.noShutdown=true  \
+	-Djetty.port=$HTTP_PORT  \
+	-Djetty.port.ssl=$HTTPS_PORT \
+	-Djetty.home=.  \
+	-Dlogback.configurationFile=configurations/logback.xml \
+	-Dfelix.fileinstall.dir=addons -Dfelix.fileinstall.filter=.*\\.jar \
+	-Djava.library.path=lib \
+	-Djava.security.auth.login.config=./etc/login.conf \
+	-Dorg.quartz.properties=./etc/quartz.properties \
+	-Dequinox.ds.block_timeout=240000 \
+	-Dequinox.scr.waitTimeOnBlock=60000 \
+	-Dfelix.fileinstall.active.level=4 \
+	-Djava.awt.headless=true \
+	-jar $cp $* \
+	-console
+```
+Give OpenHAB gpio privilages - did not work (no openhab user)
+----------------------------
+```
+sudo adduser openhab gpio
+```
 
 
 
 
+
+
+
+
+
+#TODO:
+
+Create startup script to load at power on. 
+------------------------------------------
+https://github.com/openhab/openhab/wiki/Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-linux
+
+Make openhab release gpio binding on stop
+-----------------------------------------
+https://github.com/openhab/openhab/wiki/Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-linux
 
 
 #References
