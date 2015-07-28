@@ -79,7 +79,7 @@ sudo ./start.sh
 
 congratulations you should now see the OpenHAB OSGI server running.
 
-using a web browser point it at http://[yourpiIPAddress}/openhab.app?sitemap=demo
+using a web browser point it at http://[yourpiIPAddress}:8080/openhab.app?sitemap=demo
 
 any you should see the demo :)
 
