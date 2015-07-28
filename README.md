@@ -60,8 +60,6 @@ echo 17 > /sys/class/gpio/unexport
 
 
 
-
-
 #Getting openhab
 
 downloading 
@@ -243,10 +241,14 @@ https://github.com/openhab/openhab/wiki/Samples-Tricks#how-to-configure-openhab-
 Install of OpenHAB
 ------------------
 http://www.element14.com/community/community/design-challenges/forget-me-not/blog/2014/08/04/enoceanpi-and-sensors#jive_content_id_Setting_Up_OpenHAB
+
 http://www.element14.com/community/community/design-challenges/forget-me-not/blog/2014/10/02/remember-me-always--part-018xx
 
+OpenHAB bindings
+----------------
+https://github.com/openhab/openhab/wiki/GPIO-Binding
 
-
+https://github.com/openhab/openhab/wiki/CometVisu
 
 
 
