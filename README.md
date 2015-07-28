@@ -10,17 +10,8 @@ Using default raspbian install as of 28/07/15 (installed from noobs1.4).
 
 1. install noobs on sd card.
 2. boot Rpi with sd card and install raspbian.
-3. get wireless card working with Rpi
-4. install openhab - from http://www.instructables.com/id/OpenHAB-on-Raspberry-Pi/
-5. install openhab gpio binding - from https://github.com/openhab/openhab/wiki/GPIO-Binding via apt-get
-6. configure openhab to use gpio.
-7. Test openhab talking to gpio.
-
-
-or
-
-3. install openhab gpio binding - from https://github.com/openhab/openhab/wiki/GPIO-Binding via apt-get
-4. test gpio via commandline.
+3. test gpio via commandline.
+4. install openhab gpio binding - from https://github.com/openhab/openhab/wiki/GPIO-Binding via apt-get
 5. install openhab runtime.
 6. test openhab runtime.
 7. configure gpio in openhab.
@@ -211,15 +202,42 @@ java \
 	-jar $cp $* \
 	-console
 ```
-Give OpenHAB gpio privilages - did not work (no openhab user)
-----------------------------
+
+Add to sitemap
+--------------
+
+Add this to where you would like in your .sitemap file.
 ```
-sudo adduser openhab gpio
+	Frame label="GPIO" {
+		Switch item=gpio_led17
+	}
 ```
 
 
+Add to Items
+------------
+Add the following code to the .items file
+```
+/*My test GPIO */
+Switch gpio_led17 "Relay01" { gpio="pin:17" }
+```
 
 
+Kill OpenHAB server
+-------------------
+To test my changes I restarted Openhab by doing the following.(Anyone who knows a better way please preak up).
+
+Type:
+```
+exit
+```
+into the commandline where you started OpenHAB from
+Then type
+```
+echo 17 > /sys/class/gpio/unexport 
+```
+
+Then
 
 
 
