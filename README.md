@@ -28,15 +28,19 @@ or
 
 downloading 
 -----------
-
+```
 wget https://bintray.com/artifact/download/openhab/bin/distribution-1.7.0-runtime.zip
 wget https://bintray.com/artifact/download/openhab/bin/distribution-1.7.0-addons.zip
 wget https://bintray.com/artifact/download/openhab/bin/distribution-1.7.0-demo-configuration.zip
+```
 
 
 
 Core
 ----
+```
 sudo mkdir /opt/openhab
 cd /opt/openhab/
 /opt/openhab $ sudo unzip /home/pi/distribution-1.7.0-runtime.zip
+
+```
