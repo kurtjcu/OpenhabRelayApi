@@ -25,6 +25,7 @@ or
 8. test gpio from openhab interface.s
 
 
+#Getting openhab
 
 downloading 
 -----------
@@ -44,3 +45,44 @@ cd /opt/openhab/
 /opt/openhab $ sudo unzip /home/pi/distribution-1.7.0-runtime.zip
 
 ```
+
+Bindings
+--------
+
+You should already be in "/opt/openhab"
+```
+cd addons/
+sudo unzip /home/pi/distribution-1.7.0-addons.zip
+cd ..
+sudo cp configurations/openhab_default.cfg configurations/openhab.cfg
+```
+
+
+Demo
+--------
+
+You should still be in "/opt/openhab"
+```
+sudo unzip /home/pi/distribution-1.7.0-demo-configuration.zip
+```
+
+
+Running OpenHAB
+---------------
+
+start.sh will not be executable by default so....
+You should still be in "/opt/openhab"
+```
+sudo chmod +x start.sh 
+sudo ./start.sh
+```
+
+congratulations you should now see the OpenHAB OSGI server running.
+
+using a web browser point it at http://[yourpiIPAddress}/openhab.app?sitemap=demo
+
+any you should see the demo :)
+
+
+
+
