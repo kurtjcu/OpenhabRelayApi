@@ -27,6 +27,41 @@ or
 8. test gpio from openhab interface.s
 
 
+
+#Test GPIO circuit.
+
+Testing
+-------
+To see if your gpio is functioning properly you can manually test it using the comands
+
+Used to export GPIO17
+```
+echo 17 > /sys/class/gpio/export
+```
+Used to set the GPIO17 as an output pin
+```
+echo out > /sys/class/gpio/gpio17/direction
+```
+Used to set the output pin high
+```
+echo 1 > /sys/class/gpio/gpio17/value
+```
+Used to set the output pin low
+```
+echo 0 > /sys/class/gpio/gpio17/value 
+```
+Used to unexport GPIO17 <-- must do this before trying to start OpenHAB runtime later on!!
+```
+echo 17 > /sys/class/gpio/unexport 
+```
+
+
+
+
+
+
+
+
 #Getting openhab
 
 downloading 
